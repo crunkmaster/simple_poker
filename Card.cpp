@@ -1,7 +1,6 @@
 #include "Card.hpp"
 #include <string>
 #include <vector>
-#include <random>
 
 const std::string Card::faces[] = {"Ace","2","3","4","5",
                                    "6","7","8","9","10","Jack","Queen","King"};
@@ -16,40 +15,21 @@ Card::Card(int face, int suit) {
 }
 
 std::string Card::toString() const {
-    return (this->faces[_face] + " of " + this->suits[_suit]);
+    return (this->face() + " of " + this->suit());
 }
 
-DeckOfCards::DeckOfCards() {
-    for (int suit = 0; suit < 4; suit++)
-        for (int face = 0; face < 13; face++)
-            _deck.push_back(Card(face, suit));
+std::string Card::suit() const {
+    return this->suits[_suit];
+ }
+
+int Card::suit_index() const {
+    return _suit;
 }
 
-std::vector<Card>::iterator DeckOfCards::begin() {
-    return this->_deck.begin();
-};
-
-std::vector<Card>::iterator DeckOfCards::end() {
-    return this->_deck.end();
+int Card::face_index() const {
+    return _face;
 }
 
-void DeckOfCards::shuffle_cards() {
-    std::random_device rd;
-    std::mt19937 g(rd());
-
-    std::shuffle(_deck.begin(), _deck.end(), g);
-}
-
-bool DeckOfCards::moreCards() const {
-    if (_deck.size() > 0) return true;
-    else return false;
-}
-
-Card DeckOfCards::dealCard() {
-    if (this->moreCards()) {
-        Card temp = _deck.front();
-        _deck.erase(_deck.begin());
-        return temp;
-    }
-    else { throw std::string("no cards on deck"); }
+std::string Card::face() const {
+    return this->faces[_face];
 }

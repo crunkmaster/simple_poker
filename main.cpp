@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include "Card.hpp"
+#include "Deck.hpp"
 #include "Hand.hpp"
 
 std::ostream& operator<<(std::ostream &os, const Card &rhs) {
@@ -14,7 +15,7 @@ int main() {
     cool_deck.shuffle_cards();
 
     // generate one poker hand
-    Hand cool_hand = Hand(cool_deck);
+    Hand cool_hand{cool_deck};
     for (auto card : cool_hand.cards()) {
         std::cout << card << std::endl;
     }

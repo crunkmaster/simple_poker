@@ -14,19 +14,10 @@ private:
 public:
     Card(int face, int suit);
     std::string toString() const;
-};
-
-class DeckOfCards {
-private:
-    std::vector<Card> _deck;
-    int _currentCard;
-    bool moreCards() const;
-public:
-    DeckOfCards();
-    std::vector<Card>::iterator begin();
-    std::vector<Card>::iterator end();
-    void shuffle_cards();
-    Card dealCard();
+    int suit_index() const;
+    int face_index() const;
+    std::string suit() const;
+    std::string face() const;
 };
 
 #endif
