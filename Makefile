@@ -11,6 +11,9 @@ main: $(OBJS)
 .depend: $(SRCS) $(HEADERS)
 	$(CC) $(CXXFLAGS) -MM $(SRCS) > .depend
 
+test: main
+	./main
+
 clean:
 	-rm -f *.ii
 	-rm -f *.i
