@@ -12,12 +12,12 @@ main: $(OBJS)
 	$(CC) $(CXXFLAGS) -MM $(SRCS) > .depend
 
 test: main
-	-for i in {1..10000}; do ./main >> testout; done
+	-for i in {1..100}; do ./main >> testout; done
 clean:
 	-rm -f *.ii
 	-rm -f *.i
 	-rm -f *.s
 	-rm -f *.o
 	-rm -f *.h.gch
-	-rm -f *#
+	-rm -f *#	
 	-rm -f *~

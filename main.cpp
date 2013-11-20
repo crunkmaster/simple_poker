@@ -15,14 +15,37 @@ int main() {
     cool_deck.shuffle_cards();
 
     // generate one poker hand
-
-    std::cout << "example hand: " << std::endl;
-    Hand cool_hand{cool_deck};
-    for (auto card : cool_hand.cards()) {
+    Hand dealer_hand{cool_deck};
+    Hand player_hand{cool_deck};
+    
+    std::cout << "Hand one: " << std::endl;
+    for (auto card : dealer_hand.cards()) {
         std::cout << card << std::endl;
     }
+    
+    std::cout << "score: " << std::endl;
+    std::cout << dealer_hand.eval_hand().first << std::endl;
+    dealer_hand.replace_cards(cool_deck);
+    
+    std::cout << "Replacement HAnd: " << std::endl;
+    for (auto card : dealer_hand.cards()) {
+        std::cout << card << std::endl;
+    }
+    std::cout << "score: " << std::endl;
+    std::cout << dealer_hand.eval_hand().first << std::endl;
+    
+    std::cout << std::endl;
 
-    std::cout << "histogram of hand: " << std::endl;
-    cool_hand.eval_hand();
+    std::cout << "Hand two: " << std::endl;
+    for (auto card: player_hand.cards()) {
+	std::cout << card << std::endl;
+    }
+    std::cout << std::endl;
+
+    if (dealer_hand < player_hand) {
+	std::cout << "hand two wins!" << std::endl;
+    }
+    else { std::cout << "hand one wins!" << std::endl; }
     return 0;
+    
 }

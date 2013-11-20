@@ -36,3 +36,8 @@ Card DeckOfCards::dealCard() {
     }
     else { throw std::string("no cards on deck"); }
 }
+
+int DeckOfCards::size() const {
+    return _deck.size();
+}
+

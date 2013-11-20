@@ -12,6 +12,7 @@ public:
     DeckOfCards();
     std::vector<Card>::iterator begin();
     std::vector<Card>::iterator end();
+    int size() const;
     void shuffle_cards();
     Card dealCard();
 };
