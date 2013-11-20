@@ -1,10 +1,14 @@
 #include "Card.hpp"
 #include <string>
 #include <vector>
+#include <array>
 
-const std::string Card::faces[] = {"Ace","2","3","4","5",
-                                   "6","7","8","9","10","Jack","Queen","King"};
-const std::string Card::suits[] = {"Clubs","Diamonds","Hearts","Spades"};
+// try to see if there's a cleaner way to initialize this thing..
+const std::array<std::string, 13> Card::faces{ 
+    {"Ace", "2", "3", "4", "5", "6",
+	    "7","8","9","10","Jack",
+	    "Queen","King"} };
+const std::array<std::string, 4> Card::suits{ {"Clubs", "Diamonds", "Hearts", "Spades"} } ;
 
 Card::Card(int face, int suit) {
     _face = face;
@@ -20,7 +24,7 @@ std::string Card::toString() const {
 
 std::string Card::suit() const {
     return this->suits[_suit];
- }
+}
 
 int Card::suit_index() const {
     return _suit;

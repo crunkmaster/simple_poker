@@ -19,6 +19,7 @@ enum HandType {
 class Hand {
 private:
     std::vector<Card> _cards;
+    void sort_hand();
 public:
     Hand(DeckOfCards deck);
     std::vector<Card> cards() const;

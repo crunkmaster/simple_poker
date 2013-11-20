@@ -15,10 +15,14 @@ int main() {
     cool_deck.shuffle_cards();
 
     // generate one poker hand
+
+    std::cout << "example hand: " << std::endl;
     Hand cool_hand{cool_deck};
     for (auto card : cool_hand.cards()) {
         std::cout << card << std::endl;
     }
 
+    std::cout << "histogram of hand: " << std::endl;
+    cool_hand.eval_hand();
     return 0;
 }

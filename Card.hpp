@@ -1,14 +1,15 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <array>
 
 #ifndef _CARD
 #define _CARD
 
 class Card {
 private:
-    static const std::string faces[];
-    static const std::string suits[];
+    static const std::array<std::string, 13> faces;
+    static const std::array<std::string, 4> suits;
     int _face;
     int _suit;
 public:
